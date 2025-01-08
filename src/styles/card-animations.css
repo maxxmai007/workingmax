@@ -1,0 +1,30 @@
+@keyframes floatCard {
+  0%, 100% {
+    transform: perspective(2000px) translateY(0) rotateY(-5deg);
+  }
+  50% {
+    transform: perspective(2000px) translateY(-20px) rotateY(-2deg);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200% -200%;
+  }
+  100% {
+    background-position: 200% 200%;
+  }
+}
+
+.card-glow {
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 30px rgba(212,183,136,0.2);
+  }
+  to {
+    box-shadow: 0 0 50px rgba(212,183,136,0.4);
+  }
+}
