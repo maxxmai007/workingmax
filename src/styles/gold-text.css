@@ -9,14 +9,12 @@
 
 /* Luxurious metallic gold text effect */
 .gold-gradient-text {
-  background: linear-gradient(
-    180deg,
-    var(--gold-light) 0%,
-    var(--gold-primary) 25%,
-    var(--gold-medium) 45%,
-    var(--gold-primary) 65%,
-    var(--gold-dark) 85%
-  );
+  background: linear-gradient(180deg,
+      var(--gold-light) 0%,
+      var(--gold-primary) 25%,
+      var(--gold-medium) 45%,
+      var(--gold-primary) 65%,
+      var(--gold-dark) 85%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -35,12 +33,10 @@
   content: attr(data-text);
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 229, 188, 0.4) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 229, 188, 0.4) 50%,
+      transparent 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -56,36 +52,32 @@
 
 /* Enhanced metallic button gradient */
 .gold-gradient-button {
-  background: linear-gradient(
-    135deg,
-    var(--gold-light) 0%,
-    var(--gold-primary) 35%,
-    var(--gold-medium) 50%,
-    var(--gold-primary) 65%,
-    var(--gold-dark) 100%
-  );
+  background: linear-gradient(135deg,
+      var(--gold-light) 0%,
+      var(--gold-primary) 35%,
+      var(--gold-medium) 50%,
+      var(--gold-primary) 65%,
+      var(--gold-dark) 100%);
   position: relative;
   z-index: 1;
   transition: all 0.3s ease;
-  box-shadow: 
+  box-shadow:
     0 2px 4px rgba(0, 0, 0, 0.1),
     0 0 10px var(--gold-shadow);
 }
 
 .gold-gradient-button:hover {
-  box-shadow: 
+  box-shadow:
     0 4px 8px rgba(0, 0, 0, 0.2),
     0 0 20px var(--gold-shadow);
 }
 
 /* Navigation link metallic effect */
 .nav-gold-link {
-  background: linear-gradient(
-    180deg,
-    var(--gold-light) 0%,
-    var(--gold-primary) 50%,
-    var(--gold-dark) 100%
-  );
+  background: linear-gradient(180deg,
+      var(--gold-light) 0%,
+      var(--gold-primary) 50%,
+      var(--gold-dark) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -101,12 +93,10 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    var(--gold-light),
-    var(--gold-primary),
-    var(--gold-dark)
-  );
+  background: linear-gradient(90deg,
+      var(--gold-light),
+      var(--gold-primary),
+      var(--gold-dark));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.3s ease;
@@ -121,11 +111,68 @@
 /* Gold border effect */
 .gold-border {
   border: 1px solid transparent;
-  border-image: linear-gradient(
-    to right,
-    var(--gold-light),
-    var(--gold-primary),
-    var(--gold-dark)
-  ) 1;
+  border-image: linear-gradient(to right,
+      var(--gold-light),
+      var(--gold-primary),
+      var(--gold-dark)) 1;
   box-shadow: 0 0 10px var(--gold-shadow);
+}
+
+/* Card title glow effect */
+.card-title-glow {
+  text-shadow:
+    0 0 10px rgba(212, 175, 55, 0.3),
+    0 0 20px rgba(212, 175, 55, 0.2),
+    0 0 30px rgba(212, 175, 55, 0.1);
+  animation: titlePulse 3s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 10px rgba(212, 175, 55, 0.3),
+      0 0 20px rgba(212, 175, 55, 0.2),
+      0 0 30px rgba(212, 175, 55, 0.1);
+  }
+
+  50% {
+    text-shadow:
+      0 0 15px rgba(212, 175, 55, 0.4),
+      0 0 25px rgba(212, 175, 55, 0.3),
+      0 0 35px rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* Upgrade recommendation glow effect */
+.upgrade-text-glow {
+  background: linear-gradient(180deg,
+      var(--gold-light) 0%,
+      var(--gold-primary) 50%,
+      var(--gold-dark) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow:
+    0 0 15px rgba(212, 175, 55, 0.4),
+    0 0 25px rgba(212, 175, 55, 0.3);
+  animation: upgradeGlow 2s ease-in-out infinite;
+}
+
+@keyframes upgradeGlow {
+
+  0%,
+  100% {
+    text-shadow:
+      0 0 15px rgba(212, 175, 55, 0.4),
+      0 0 25px rgba(212, 175, 55, 0.3);
+  }
+
+  50% {
+    text-shadow:
+      0 0 20px rgba(212, 175, 55, 0.5),
+      0 0 30px rgba(212, 175, 55, 0.4),
+      0 0 40px rgba(212, 175, 55, 0.2);
+  }
 }

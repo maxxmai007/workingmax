@@ -23,7 +23,10 @@ export function LoadingModal({ isOpen, message = 'Upgrading...' }: LoadingModalP
         <p className="text-gold-500">{message}</p>
         <div style={{ width: '100%', height: '60%', position: 'relative' }}>
           <iframe
-            src="https://giphy.com/embed/ycANs3udEsdsdgDIDZ"
+            src={message.toLowerCase().includes('finding upgrades')
+              ? "https://giphy.com/embed/B3MxFEwhPlPqp7CS6L"
+              : "https://giphy.com/embed/ycANs3udEsdsdgDIDZ"
+            }
             width="100%"
             height="100%"
             style={{ position: 'absolute' }}
@@ -32,11 +35,6 @@ export function LoadingModal({ isOpen, message = 'Upgrading...' }: LoadingModalP
             allowFullScreen
           ></iframe>
         </div>
-        <p>
-          <a href="https://giphy.com/gifs/Vitracash-vitracash-debit-cards-concept-ycANs3udEsdsdgDIDZ">
-            via GIPHY
-          </a>
-        </p>
       </div>
     </div>
   );

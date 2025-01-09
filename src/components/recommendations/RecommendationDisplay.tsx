@@ -1,28 +1,31 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { CardDisplay } from './card/CardDisplay';
 import { Questionnaire } from './questionnaire/Questionnaire';
 import { BackButton } from '../ui/BackButton';
 import { Logo } from '../layout/Logo';
 import { GraffitiOverlay } from '../animations/GraffitiOverlay';
 import type { CreditCardRecommendation } from '../../services/openai/types';
+import { useLocation } from 'react-router-dom';
 
 interface RecommendationDisplayProps {
   recommendation: CreditCardRecommendation;
 }
 
 export function RecommendationDisplay({ recommendation }: RecommendationDisplayProps) {
+  const location = useLocation();
+  const isUpgrade = location.pathname.includes('/existing');
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-8">
       <GraffitiOverlay />
-      
-      {/* Rest of the component remains the same */}
+
       <div className="flex items-center justify-between mb-8">
         <Logo />
         <BackButton />
       </div>
 
       <h1 className="text-4xl font-display text-white text-center mb-12">
-        Your Perfect Credit Card
+        {isUpgrade ? 'Your Recommended Upgrade' : 'Your Perfect Credit Card'}
       </h1>
 
       <div className="grid grid-cols-2 gap-12">
@@ -33,6 +36,7 @@ export function RecommendationDisplay({ recommendation }: RecommendationDisplayP
               name={recommendation.card_name}
               imageUrl={recommendation.card_image}
               className="shadow-[0_0_30px_rgba(212,183,136,0.15)]"
+              isUpgrade={isUpgrade}
             />
             <a
               href={recommendation.apply_link}

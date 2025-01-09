@@ -1,14 +1,16 @@
 import React from 'react';
 import { getCardImage } from '../../../utils/cardImages';
 import type { CreditCardRecommendation } from '../../../services/openai/types';
+import '../../../styles/gold-text.css';
 
 interface RecommendationCardProps {
   recommendation: CreditCardRecommendation;
+  isUpgrade?: boolean;
 }
 
-export function RecommendationCard({ recommendation }: RecommendationCardProps) {
-  const displayImage = React.useMemo(() => 
-    getCardImage(recommendation.card_name), 
+export function RecommendationCard({ recommendation, isUpgrade = false }: RecommendationCardProps) {
+  const displayImage = React.useMemo(() =>
+    getCardImage(recommendation.card_name),
     [recommendation.card_name]
   );
 
@@ -21,11 +23,11 @@ export function RecommendationCard({ recommendation }: RecommendationCardProps) 
           alt={recommendation.card_name}
           className="w-full h-auto object-contain"
         />
-        
+
         {/* Overlay with card details */}
         <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/50 to-transparent">
           <div className="absolute bottom-0 left-0 right-0 p-6 space-y-2">
-            <h3 className="text-2xl font-medium text-white">
+            <h3 className={`text-2xl font-medium ${isUpgrade ? 'upgrade-text-glow' : 'text-white'}`}>
               {recommendation.card_name}
             </h3>
             <div className="flex justify-between text-sm">
