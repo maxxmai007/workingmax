@@ -1,62 +1,31 @@
-import React, { useEffect, useRef } from 'react';
-import '../../styles/confetti.css';
+import Confetti from 'react-confetti';
+import { useWindowSize } from '../../hooks/useWindowSize';
 
 export function GoldConfetti() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const { width, height } = useWindowSize();
 
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const createConfetti = () => {
-      const confetti = document.createElement('div');
-      confetti.className = 'confetti';
-
-      // Random starting position
-      const startX = Math.random() * window.innerWidth;
-      confetti.style.left = `${startX}px`;
-      confetti.style.top = '-20px';
-
-      // Random animation properties
-      const duration = 1.5 + Math.random();
-      const delay = Math.random();
-      confetti.style.animation = `confettiDrop ${duration}s ${delay}s ease-in forwards`;
-
-      // Random rotation and scale
-      const rotation = Math.random() * 360;
-      const scale = 0.5 + Math.random() * 0.5;
-      confetti.style.transform = `rotate(${rotation}deg) scale(${scale})`;
-
-      container.appendChild(confetti);
-
-      // Cleanup
-      confetti.addEventListener('animationend', () => {
-        confetti.remove();
-      });
-    };
-
-    // Create initial burst of confetti
-    for (let i = 0; i < 100; i++) {
-      createConfetti();
-    }
-
-    // Add more confetti periodically
-    const interval = setInterval(() => {
-      for (let i = 0; i < 5; i++) {
-        createConfetti();
-      }
-    }, 300);
-
-    // Cleanup after 3 seconds
-    const timeout = setTimeout(() => {
-      clearInterval(interval);
-    }, 3000);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(timeout);
-    };
-  }, []);
-
-  return <div ref={containerRef} className="confetti-container" />;
+  return (
+    <Confetti
+      width={width}
+      height={height}
+      gravity={0.1}         // Made even slower
+      numberOfPieces={100}  // Reduced for better visibility of individual pieces
+      colors={[
+        '#FFD700',   // Gold
+        '#C0C0C0',   // Silver
+        '#E5E4E2',   // Platinum
+        '#DAA520',   // Goldenrod
+        '#C4CACE',   // Silver metallic
+        '#B8860B',   // Dark goldenrod
+      ]}
+      drawShape={ctx => {
+        // Draw a card shape
+        ctx.beginPath();
+        ctx.roundRect(-15, -20, 30, 40, 3); // Rectangle with rounded corners
+        ctx.fill();
+      }}
+      recycle={false}
+      tweenDuration={10000}  // Even slower animation
+    />
+  );
 }

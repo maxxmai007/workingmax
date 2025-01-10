@@ -14,7 +14,7 @@ export function BetterCardMatch() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setShowConfetti(true);
-    }, 1000);
+    }, 300);
 
     return () => clearTimeout(timeout);
   }, []);
