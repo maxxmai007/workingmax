@@ -2,7 +2,6 @@ import React from 'react';
 import { QuestionSection } from './QuestionSection';
 import { TechnicalDetails } from './TechnicalDetails';
 import type { QuestionnaireProps } from './types';
-import { formatCurrency } from '../../../utils/formatters';
 
 export function Questionnaire({ recommendation }: QuestionnaireProps) {
   return (

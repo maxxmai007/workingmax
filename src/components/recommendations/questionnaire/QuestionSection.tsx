@@ -15,7 +15,7 @@ export function QuestionSection({ title, children }: QuestionSectionProps) {
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-4 flex items-center justify-between text-left"
       >
-        <h3 className="text-lg font-medium text-gold-500">{title}</h3>
+        <h3 className="text-2xl font-medium text-gold-500">{title}</h3>
         <span className={cn(
           "text-gold-500/80 transition-transform duration-200", // Changed color to match theme
           isOpen ? "rotate-180" : ""
@@ -23,17 +23,17 @@ export function QuestionSection({ title, children }: QuestionSectionProps) {
           ▼
         </span>
       </button>
-      
-      <div 
+
+      <div
         className={cn(
           "overflow-hidden transition-all duration-200",
           isOpen ? "max-h-[500px] opacity-100 mb-4" : "max-h-0 opacity-0"
         )}
       >
-        <div className="text-gold-500/80 leading-relaxed">
+        <div className="text-lg text-white/90 leading-relaxed">
           {children}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
