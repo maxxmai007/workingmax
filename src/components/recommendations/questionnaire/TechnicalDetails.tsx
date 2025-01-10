@@ -1,20 +1,24 @@
-import React from 'react';
+import { GoldenText } from '../../animations/GoldenText';
 
 interface TechnicalDetailsProps {
-  annualFee: string;
-  rewardPotential: string;
+  annualFee?: string | number;
+  rewardPotential?: string | number;
 }
 
 export function TechnicalDetails({ annualFee, rewardPotential }: TechnicalDetailsProps) {
   return (
-    <dl className="space-y-2">
-      <div>
-        <dt className="text-gold-500/60">Your Reward Potential</dt>
-        <dd className="text-white">{rewardPotential || 'N/A'}</dd>
-      </div>
+    <dl className="space-y-4">
       <div>
         <dt className="text-gold-500/60">Annual Fee</dt>
-        <dd className="text-white">{annualFee || 'N/A'}</dd>
+        <GoldenText>
+          <dd className="text-white">{annualFee}</dd>
+        </GoldenText>
+      </div>
+      <div>
+        <dt className="text-gold-500/60">Potential Value</dt>
+        <GoldenText>
+          <dd className="text-white">{rewardPotential}</dd>
+        </GoldenText>
       </div>
     </dl>
   );
