@@ -6,9 +6,10 @@ interface CardDisplayProps {
   name: string;
   imageUrl: string;
   className?: string;
+  isUpgrade?: boolean;
 }
 
-export function CardDisplay({ name, imageUrl, className }: CardDisplayProps) {
+export function CardDisplay({ name, imageUrl, className, isUpgrade }: CardDisplayProps) {
   const cardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

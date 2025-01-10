@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { CardDisplay } from './card/CardDisplay';
 import { Questionnaire } from './questionnaire/Questionnaire';
 import { BackButton } from '../ui/BackButton';
 import { Logo } from '../layout/Logo';
 import { GraffitiOverlay } from '../animations/GraffitiOverlay';
+import { GoldConfetti } from '../animations/GoldConfetti';
 import type { CreditCardRecommendation } from '../../services/openai/types';
 import { useLocation } from 'react-router-dom';
 
@@ -12,11 +13,21 @@ interface RecommendationDisplayProps {
 }
 
 export function RecommendationDisplay({ recommendation }: RecommendationDisplayProps) {
+  const [showConfetti, setShowConfetti] = useState(false);
   const location = useLocation();
   const isUpgrade = location.pathname.includes('/existing');
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setShowConfetti(true);
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
-    <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="max-w-7xl mx-auto px-4 py-8 relative">
+      {showConfetti && <GoldConfetti />}
       <GraffitiOverlay />
 
       <div className="flex items-center justify-between mb-8">
