@@ -5,7 +5,8 @@ import { BackButton } from '../components/ui/BackButton';
 import { Card } from '../components/ui/card';
 import { getCardImagePath } from '../utils/cards/imageMapper';
 import { GoldSparks } from '../components/animations/GoldSparks';
-import { GoldConfetti } from '../components/animations/GoldConfetti';;
+import { GoldConfetti } from '../components/animations/GoldConfetti';
+import { GoldenText } from '../components/animations/GoldenText';
 
 export function BetterCardMatch() {
   const { recommendations } = useRecommendationsStore();
@@ -85,12 +86,12 @@ export function BetterCardMatch() {
           {/* Recommended Card */}
           <Card className="relative p-6 space-y-6">
             <GoldSparks />
-            <div className="relative">
+            <div className="relative z-10">
               <h2 className="text-xl font-medium text-gold-500">Recommended Upgrade</h2>
               <div className="absolute inset-0 blur-xl bg-gold-500/20 animate-pulse" />
             </div>
 
-            <div className="aspect-[1.586] relative rounded-lg overflow-hidden bg-dark-800">
+            <div className="aspect-[1.586] relative rounded-lg overflow-hidden bg-dark-800 z-10">
               <img
                 src={recommendedCardImage}
                 alt={data.recommended_card_name}
@@ -101,19 +102,27 @@ export function BetterCardMatch() {
             <dl className="space-y-4">
               <div>
                 <dt className="text-gold-500/60">Card Name</dt>
-                <dd className="text-white font-medium">{data.recommended_card_name}</dd>
+                <GoldenText>
+                  <dd className="text-white font-medium">{data.recommended_card_name}</dd>
+                </GoldenText>
               </div>
               <div>
                 <dt className="text-gold-500/60">Annual Fee</dt>
-                <dd className="text-white">{data.recommended_card_annual_fee}</dd>
+                <GoldenText>
+                  <dd className="text-white">{data.recommended_card_annual_fee}</dd>
+                </GoldenText>
               </div>
               <div>
                 <dt className="text-gold-500/60">Benefits Value</dt>
-                <dd className="text-white">{data.recommended_card_benefit_in_reward_category}</dd>
+                <GoldenText>
+                  <dd className="text-white">{data.recommended_card_benefit_in_reward_category}</dd>
+                </GoldenText>
               </div>
               <div>
                 <dt className="text-gold-500/60">Reward Redemption</dt>
-                <dd className="text-white">{data.recommended_card_reward_redemption}</dd>
+                <GoldenText>
+                  <dd className="text-white">{data.recommended_card_reward_redemption}</dd>
+                </GoldenText>
               </div>
             </dl>
           </Card>
