@@ -1,0 +1,32 @@
+@keyframes confettiDrop {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 20px;
+  background: linear-gradient(
+    135deg,
+    #FFE5BC 0%,
+    #D4B788 50%,
+    #B08D57 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgba(212, 183, 136, 0.4);
+}
