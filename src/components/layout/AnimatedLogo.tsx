@@ -1,5 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { CreditCard } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import '../../styles/logo-animation.css';
 
 export function AnimatedLogo() {
@@ -29,12 +30,12 @@ export function AnimatedLogo() {
   }, []);
 
   return (
-    <div className="flex items-center gap-2">
+    <Link to="/" className="flex items-center gap-2 cursor-pointer">
       <CreditCard className="w-6 h-6 text-gold-500" />
       <div className="logo-container" ref={containerRef}>
         <span className="text-white font-bold">MAXXM</span>
         <span className="ai-text">AI</span>
       </div>
-    </div>
+    </Link>
   );
 }

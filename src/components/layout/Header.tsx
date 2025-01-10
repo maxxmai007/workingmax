@@ -19,9 +19,7 @@ export function Header() {
             {showBackButton && (
               <BackButton className="flex-shrink-0" />
             )}
-            <Link to="/" className="flex-shrink-0">
-              <Logo />
-            </Link>
+            <Logo className="flex-shrink-0" />
           </div>
 
           {/* Center section with Navigation */}
@@ -31,8 +29,8 @@ export function Header() {
 
           {/* Right section with CTA */}
           <div className="flex-shrink-0">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="sm"
               onClick={() => navigate('/profile')}
               className="whitespace-nowrap"
